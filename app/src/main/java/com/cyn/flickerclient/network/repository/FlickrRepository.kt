@@ -2,6 +2,8 @@ package com.cyn.flickerclient.network.repository
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
+import com.cyn.flickerclient.network.model.Feed
+import com.cyn.flickerclient.network.model.PersonInfoResponse
 import com.cyn.flickerclient.network.model.SearchResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -9,7 +11,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class FlickrRepository private constructor(): Callback<SearchResponse> {
+class FlickrRepository private constructor(): Callback<Feed> {
     val data: MutableLiveData<SearchResponse> = MutableLiveData()
 
     private object Holder { val INSTANCE = FlickrRepository() }
@@ -27,17 +29,19 @@ class FlickrRepository private constructor(): Callback<SearchResponse> {
         }
     }
 
-
-    override fun onResponse(call: Call<SearchResponse>?, response: Response<SearchResponse>?) {
-        data.value = response?.body()
+    override fun onResponse(call: Call<Feed>?, response: Response<Feed>?) {
+        data.value = response?.body()?.photos
     }
 
-    override fun onFailure(call: Call<SearchResponse>?, t: Throwable?) {
+    override fun onFailure(call: Call<Feed>?, t: Throwable?) {
+    }
 
+    fun getUserInfo(userId: String, callback: Callback<PersonInfoResponse>) {
+        create().getPersonInfo(API_KEY, userId).enqueue(callback)
     }
 
     fun getRecentPosts(): LiveData<SearchResponse> {
-        create().getLatestPhotos(API_KEY, "").enqueue(this)
+        create().getLatestPhotos(API_KEY).enqueue(this)
 
         return data
     }

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">flickerclient</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="url_template">https://farm%1$d.staticflickr.com/%2$d/%3$d_%4$d_%5$s.jpg</string>
 </resources>
