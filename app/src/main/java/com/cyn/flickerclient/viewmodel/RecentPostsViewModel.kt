@@ -7,12 +7,5 @@ import com.cyn.flickerclient.network.model.SearchResponse
 import com.cyn.flickerclient.network.repository.FlickrRepository
 
 class RecentPostsViewModel(application: Application) : AndroidViewModel(application) {
-    var recentPostsObservable: LiveData<SearchResponse>
-
-    init {
-        recentPostsObservable = FlickrRepository.instance.getRecentPosts()
-    }
-
-
-
+    var recentPostsObservable: LiveData<SearchResponse> = FlickrRepository.instance.getRecentPosts()
 }

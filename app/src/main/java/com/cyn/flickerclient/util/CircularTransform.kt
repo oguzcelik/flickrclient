@@ -1,4 +1,4 @@
-package com.cyn.flickerclient.view.util
+package com.cyn.flickerclient.util
 
 import android.graphics.*
 import com.squareup.picasso.Transformation

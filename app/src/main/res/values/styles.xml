@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="PreviewDialogTheme" parent="android:Theme">
+        <item name="android:background">@color/colorTransparentWhite99</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowAnimationStyle">@style/PreviewDialogAnimation</item>
+    </style>
+
+    <style name="PreviewDialogAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
 </resources>

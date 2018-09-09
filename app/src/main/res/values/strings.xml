@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">flickerclient</string>
-
-    <string name="url_template">https://farm%1$d.staticflickr.com/%2$d/%3$d_%4$d_%5$s.jpg</string>
 </resources>
