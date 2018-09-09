@@ -3,7 +3,6 @@ package com.cyn.flickerclient.network.repository
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import com.cyn.flickerclient.network.model.Feed
-import com.cyn.flickerclient.network.model.PersonInfoResponse
 import com.cyn.flickerclient.network.model.SearchResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,15 +28,11 @@ class FlickrRepository private constructor(): Callback<Feed> {
         }
     }
 
-    override fun onResponse(call: Call<Feed>?, response: Response<Feed>?) {
-        data.value = response?.body()?.photos
+    override fun onResponse(call: Call<Feed>, response: Response<Feed>) {
+        data.value = response.body()?.photos
     }
 
     override fun onFailure(call: Call<Feed>?, t: Throwable?) {
-    }
-
-    fun getUserInfo(userId: String, callback: Callback<PersonInfoResponse>) {
-        create().getPersonInfo(API_KEY, userId).enqueue(callback)
     }
 
     fun getRecentPosts(): LiveData<SearchResponse> {

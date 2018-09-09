@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="list_item_padding_10dp">10dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+
+    <dimen name="user_icon_size">48dp</dimen>
+
+</resources>
