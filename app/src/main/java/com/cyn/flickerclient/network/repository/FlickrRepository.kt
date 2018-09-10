@@ -17,7 +17,7 @@ class FlickrRepository private constructor(): Callback<Feed> {
 
     companion object {
         val instance: FlickrRepository by lazy { Holder.INSTANCE }
-        val API_KEY =  "ae5155d8f67aaf83479e37f0024fe53a"
+        val API_KEY =  "REPLACE WITH YOUR API KEY
         fun create(): FlickrApi {
             val retrofit = Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create())
